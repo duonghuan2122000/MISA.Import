@@ -62,8 +62,7 @@ namespace MISA.Import.Api.Controllers
             return Ok(new
             {
                 totalRecord= customersImport.Count(),
-                success = success,
-                customers = customersImport
+                success = success
             });
         }
     }

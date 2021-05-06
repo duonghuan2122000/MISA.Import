@@ -9,6 +9,11 @@ namespace MISA.Import.Core.Entities
     public class Customer
     {
         /// <summary>
+        /// Id khách hàng.
+        /// </summary>
+        
+        public Guid CustomerId { get; set; }
+        /// <summary>
         /// Mã khách hàng.
         /// </summary>
         public string CustomerCode { get; set; }
@@ -17,6 +22,11 @@ namespace MISA.Import.Core.Entities
         /// Họ và tên.
         /// </summary>
         public string FullName { get; set; }
+
+        /// <summary>
+        /// Giới tính
+        /// </summary>
+        public int? Gender { get; set; }
 
         /// <summary>
         /// Mã thẻ thành viên.

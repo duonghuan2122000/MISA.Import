@@ -46,7 +46,7 @@ namespace MISA.Core.Services
                         CustomerCode = GetValue(worksheet.Cells[rowNumber, 1].Value),
                         FullName = GetValue(worksheet.Cells[rowNumber, 2].Value),
                         MemberCardCode = GetValue(worksheet.Cells[rowNumber, 3].Value),
-                        PhoneNumber = GetValue(worksheet.Cells[rowNumber, 4].Value),
+                        PhoneNumber = GetValue(worksheet.Cells[rowNumber, 5].Value),
                         DateOfBirth = ParseDate(worksheet.Cells[rowNumber, 6].Value),
                         CompanyName = GetValue(worksheet.Cells[rowNumber, 7].Value),
                         CompanyTaxCode = GetValue(worksheet.Cells[rowNumber, 8].Value),
@@ -94,7 +94,7 @@ namespace MISA.Core.Services
                     }
 
                     // check nhóm khách hàng có tồn tại trên hệ thống.
-                    string customerGroupName = GetValue(worksheet.Cells[rowNumber, 5].Value);
+                    string customerGroupName = GetValue(worksheet.Cells[rowNumber, 4].Value);
 
                     var customerGroup = _customerRepository.GetCustomerGroup(customerGroupName);
                     if (customerGroup == null)
@@ -125,7 +125,7 @@ namespace MISA.Core.Services
             int i = 0;
             foreach (var ci in customersImport)
             {
-                if (!ci.Errors.Any())
+                if (ci.Errors.Count() <= 0)
                 {
                     i++;
                     _customerRepository.InsertCustomer(ci.Data);
