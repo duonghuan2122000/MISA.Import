@@ -1,0 +1,15 @@
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.csprojAssemblyReference.cache
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.AssemblyInfo.cs
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\bin\Debug\net5.0\MISA.Infrastructure.deps.json
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\bin\Debug\net5.0\MISA.Infrastructure.dll
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\bin\Debug\net5.0\ref\MISA.Infrastructure.dll
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\bin\Debug\net5.0\MISA.Infrastructure.pdb
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.csproj.CopyComplete
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.dll
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\obj\Debug\net5.0\ref\MISA.Infrastructure.dll
+C:\Users\dbhuan\source\repos\MISA.Import\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.pdb
