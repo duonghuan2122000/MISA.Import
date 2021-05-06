@@ -22,6 +22,15 @@ namespace MISA.Import.Api.Controllers
             _customerService = customerService;
         }
 
+        /// <summary>
+        /// Endpoint đọc dữ liệu từ file excel và đưa ra lỗi của từng khách hàng.
+        /// </summary>
+        /// <param name="formFile">file excel</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Danh sách khách hàng và lỗi của từng khách hàng.</returns>
+        /// <response code="200">Có dữ liệu trả về.</response>
+        /// <response code="400">Lỗi client.</response>
+        /// <response code="500">Lỗi server</response>
         [HttpPost("reader")]
         public async Task<IActionResult> Post(IFormFile formFile, CancellationToken cancellationToken)
         {
@@ -39,6 +48,13 @@ namespace MISA.Import.Api.Controllers
             return Ok(res);
         }
 
+        /// <summary>
+        /// Endpoint thêm danh sách khách không có lỗi vào db.
+        /// </summary>
+        /// <param name="customersImport">Danh sách khách hàng và lỗi của từng khách hàng.</param>
+        /// <returns>Số khách hàng thêm thành công.</returns>
+        /// <response code="200">Thêm thành công.</response>
+        /// <response code="500">Lỗi server.</response>
         [HttpPost("import")]
         public IActionResult InsertCustomers(List<CustomerImport> customersImport)
         {

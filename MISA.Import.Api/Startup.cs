@@ -1,20 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MISA.Core.Interfaces.Repositories;
 using MISA.Core.Interfaces.Services;
 using MISA.Core.Services;
+using MISA.Import.Api.Middleware;
 using MISA.Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MISA.Import.Api
 {
@@ -50,6 +44,8 @@ namespace MISA.Import.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MISA.Import.Api v1"));
             }
+
+            app.UseMiddleware(typeof(MisaImportMiddleware));
 
             app.UseHttpsRedirection();
 

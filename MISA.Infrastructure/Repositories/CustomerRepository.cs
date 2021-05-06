@@ -17,6 +17,12 @@ namespace MISA.Infrastructure.Repositories
             _connectionString = configuration.GetConnectionString("ConnectionDb");
         }
 
+        /// <summary>
+        /// Hàm kiểm tra trùng mã khách hàng trên db.   
+        /// </summary>
+        /// <param name="customerCode">mã khách hàng cần kiểm tra.</param>
+        /// <returns>Trùng hay không.</returns>
+        /// CreatedBy: dbhuan (06/05/2021)
         public bool CheckCustomerCodeExists(string customerCode)
         {
             using var connection = new MySqlConnection(_connectionString);
@@ -26,6 +32,12 @@ namespace MISA.Infrastructure.Repositories
             return isExists;
         }
 
+        /// <summary>
+        /// Hàm kiểm tra có trùng số điện thoại khách hàng trên db.
+        /// </summary>
+        /// <param name="phoneNumber">số điện thoại cần kiểm tra.</param>
+        /// <returns>Trùng hay không.</returns>
+        /// CreatedBy: dbhuan (06/05/2021)
         public bool CheckPhoneNumberExists(string phoneNumber)
         {
             using var connection = new MySqlConnection(_connectionString);
@@ -35,6 +47,12 @@ namespace MISA.Infrastructure.Repositories
             return isExists;
         }
 
+        /// <summary>
+        /// Hàm insert một khách hàng vào db.
+        /// </summary>
+        /// <param name="customer">Thông tin khách hàng.</param>
+        /// <returns>Số khách hàng thêm thành công.</returns>
+        /// CreatedBy: dbhuan (06/05/2021)
         public CustomerGroup GetCustomerGroup(string customerGroupName)
         {
             using var connection = new MySqlConnection(_connectionString);
@@ -44,6 +62,12 @@ namespace MISA.Infrastructure.Repositories
             return customerGroup;
         }
 
+        /// <summary>
+        /// Lấy thông tin một nhóm khách hàng trên db.
+        /// </summary>
+        /// <param name="customerGroupName">Tên nhóm khách cần lấy.</param>
+        /// <returns>Thông tin một nhóm khách hàng.</returns>
+        /// CreatedBy: dbhuan (06/05/2021)
         public int InsertCustomer(Customer customer)
         {
             using var connection = new MySqlConnection(_connectionString);

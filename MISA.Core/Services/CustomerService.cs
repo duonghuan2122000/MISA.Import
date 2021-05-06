@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,6 +22,13 @@ namespace MISA.Core.Services
             _customerRepository = customerRepository;
         }
 
+        /// <summary>
+        /// Hàm đọc thông tin file excel.
+        /// </summary>
+        /// <param name="file">file excel.</param>
+        /// <param name="cancellationToken">Token hủy</param>
+        /// <returns>Danh sách các khách hàng và lỗi của từng khách hàng.</returns>
+        /// CreatedBy: dbhuan (06/05/2021)
         public async Task<List<CustomerImport>> ReadFromExcel(IFormFile formFile, CancellationToken cancellationToken)
         {
             var customersImport = new List<CustomerImport>();
@@ -91,10 +97,11 @@ namespace MISA.Core.Services
                     string customerGroupName = GetValue(worksheet.Cells[rowNumber, 5].Value);
 
                     var customerGroup = _customerRepository.GetCustomerGroup(customerGroupName);
-                    if(customerGroup == null)
+                    if (customerGroup == null)
                     {
                         customerImport.Errors.Add(Properties.Resources.MsgErrorCustomerGroupNotExists);
-                    } else
+                    }
+                    else
                     {
                         customer.CustomerGroupId = customerGroup.CustomerGroupId;
                         customer.CustomerGroupName = customerGroupName;
@@ -107,10 +114,16 @@ namespace MISA.Core.Services
             return customersImport;
         }
 
+        /// <summary>
+        /// Hàm thêm nhiều khách hàng không có lỗi vào db.
+        /// </summary>
+        /// <param name="customersImport">Danh sách các khách hàng và lỗi của từng khách hàng</param>
+        /// <returns>Số khách hàng thêm thành công.</returns>
+        /// CreatedBy: dbhuan (06/05/2021)
         public int InsertCustomers(List<CustomerImport> customersImport)
         {
             int i = 0;
-            foreach(var ci in customersImport)
+            foreach (var ci in customersImport)
             {
                 if (!ci.Errors.Any())
                 {
@@ -121,6 +134,12 @@ namespace MISA.Core.Services
             return i;
         }
 
+        /// <summary>
+        /// Hàm chuyển giá trị object từ excel thành kiểu string.
+        /// </summary>
+        /// <param name="valueObj">Giá trị cần chuyển</param>
+        /// <returns>Chuỗi string.</returns>
+        /// CreatedBy: dbhuan (06/05/2021)
         private string GetValue(object valueObj)
         {
             if (valueObj is null)
@@ -130,6 +149,12 @@ namespace MISA.Core.Services
             return valueObj.ToString().Trim();
         }
 
+        /// <summary>
+        /// Hàm parse date string thành kiểu DateTime.
+        /// </summary>
+        /// <param name="valueObj">dateString</param>
+        /// <returns>DateTime</returns>
+        /// CreatedBy: dbhuan (06/05/2021)
         private DateTime? ParseDate(object valueObj)
         {
             string valueStr = GetValue(valueObj);
